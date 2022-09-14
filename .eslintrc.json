@@ -1,18 +1,26 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "plugin:tailwindcss/recommended"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["unused-imports", "tailwindcss"],
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "plugin:tailwindcss/recommended", "prettier"],
+  "plugins": ["unused-imports", "tailwindcss", "prettier"],
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "jsx-quotes": "off",
     "react/function-component-definition": [
       "error",
       {
         "namedComponents": ["function-declaration", "arrow-function"],
         "unnamedComponents": "arrow-function"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "parser": "flow"
       }
     ]
   } 
