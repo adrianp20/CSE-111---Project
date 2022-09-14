@@ -5,10 +5,10 @@
   "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "plugin:tailwindcss/recommended", "prettier"],
   "plugins": ["unused-imports", "tailwindcss", "prettier"],
   "rules": {
+    "jsx-quotes": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "jsx-quotes": "off",
     "react/function-component-definition": [
       "error",
       {
