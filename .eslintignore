@@ -1,0 +1,6 @@
+next.config.js
+.eslintrc.json
+.eslintignore
+
+tailwind.config.js
+postcss.config.js
