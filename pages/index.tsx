@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import Component from '../components/login-btn';
+import Navbar from '../components/Navbar/Navbar';
 
 const Home: NextPage = () => (
-  <div className="flex">
-    <Component />
+  <div>
+    <Navbar />
   </div>
 );
 
