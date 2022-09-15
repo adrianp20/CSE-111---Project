@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-
+import Component from '../components/login-btn';
 // interface Props {
 //   data: {
 //     name: string,
@@ -8,7 +8,7 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => (
   <div className="flex">
-    <h1>Hello</h1>
+    <Component />
   </div>
 );
 
