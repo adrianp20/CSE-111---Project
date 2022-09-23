@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import LoginButton from '../LoginButton';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => (
   <div className="navbar bg-base-100">
@@ -57,7 +58,18 @@ const Navbar = () => (
           </li>
         </ul>
       </div>
-      <a className="btn-ghost btn text-xl normal-case">daisyUI</a>
+
+      <Link href="/">
+        <button className="flex items-center justify-center text-3xl">
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={100}
+            height={100}
+            className="self-center object-contain"
+          />
+        </button>
+      </Link>
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal p-0">
@@ -92,7 +104,9 @@ const Navbar = () => (
       </ul>
     </div>
     <div className="navbar-end">
-      <a className="btn">Get started</a>
+      <Link href="/auth/login">
+        <button className="btn">Get Started</button>
+      </Link>
     </div>
   </div>
 );

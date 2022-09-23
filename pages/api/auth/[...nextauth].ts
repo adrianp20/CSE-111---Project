@@ -22,7 +22,7 @@ export const authOptions = {
     // ...add more providers here
   ],
   pages: {
-    signIn: '/login',
+    signIn: '/auth/login',
     // signOut: '/auth/signout',
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // (used for check email message)
