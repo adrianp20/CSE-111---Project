@@ -51,7 +51,7 @@ model User {
   lobby   Lobby?  @relation(fields: [lobbyId], references: [id], onDelete: SetNull)
 
   following   User[] @relation("Follow")
-  followers User[] @relation("Follow")
+  followers   User[] @relation("Follow")
 
 }
 
