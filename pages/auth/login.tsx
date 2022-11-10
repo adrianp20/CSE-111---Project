@@ -40,7 +40,6 @@ const Login: NextPage = () => {
                 alt="google login"
                 width="32"
                 height="32"
-                layout="fixed"
               />
             </span>
             <h1 className="prose prose-stone"> Sign In With Google</h1>
@@ -55,7 +54,6 @@ const Login: NextPage = () => {
                 alt="google login"
                 width="32"
                 height="32"
-                layout="fixed"
               />
             </span>
             <h1 className="prose prose-stone"> Sign In With Github</h1>

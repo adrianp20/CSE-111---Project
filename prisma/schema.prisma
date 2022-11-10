@@ -49,6 +49,10 @@ model User {
 
   lobbyId String?
   lobby   Lobby?  @relation(fields: [lobbyId], references: [id], onDelete: SetNull)
+
+  following   User[] @relation("Follow")
+  followers User[] @relation("Follow")
+
 }
 
 model VerificationToken {
@@ -64,6 +68,7 @@ model Profile {
   bio    String?
   userId String  @unique
   user   User    @relation(fields: [userId], references: [id])
+  category Category[]
 }
 
 model Lobby {
@@ -81,4 +86,5 @@ model Category {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   lobby     Lobby[]
+  profile   Profile[]
 }
