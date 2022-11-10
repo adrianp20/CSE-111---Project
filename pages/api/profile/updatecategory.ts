@@ -18,7 +18,7 @@ export default async function handler(
       },
       data: {
         category: {
-          connect: data.category,
+          connect: data.categoryIds.map((id: any) => ({ id })),
         },
       },
     });

@@ -19,7 +19,7 @@ export default async function handler(
     data: {
       followers: {
         disconnect: {
-          id: data.followerId,
+          id: data.followId,
         },
       },
     },

@@ -12,13 +12,20 @@ export default async function handler(
   // const session = await unstable_getServerSession(req, res, authOptions);
   // if (session) {
   const data = req.body;
-  const friendRequest = await prisma.friends.create({
+  const lobby = await prisma.lobby.update({
+    where: {
+      id: data.lobbyId,
+    },
     data: {
-      user_id: data.userId,
-      friend_id: data.friendId,
+      users: {
+        connect: {
+          id: data.userId,
+        },
+      },
     },
   });
-  res.status(200).json({ friendRequest });
+
+  res.status(200).json({ lobby });
   // } else {
   //   res.status(401).json({
   //     error: 'You must be signed in',
