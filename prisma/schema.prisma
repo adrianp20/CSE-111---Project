@@ -50,9 +50,11 @@ model User {
   lobbyId String?
   lobby   Lobby?  @relation(fields: [lobbyId], references: [id], onDelete: SetNull)
 
-  following   User[] @relation("Follow")
-  followers   User[] @relation("Follow")
+  following User[] @relation("Follow")
+  followers User[] @relation("Follow")
 
+  userFriends       Friends[] @relation(name: "users")
+  friendUserFriends Friends[] @relation(name: "friend_users")
 }
 
 model VerificationToken {
@@ -64,10 +66,10 @@ model VerificationToken {
 }
 
 model Profile {
-  id     String  @id @default(cuid())
-  bio    String?
-  userId String  @unique
-  user   User    @relation(fields: [userId], references: [id])
+  id       String     @id @default(cuid())
+  bio      String?
+  userId   String     @unique
+  user     User       @relation(fields: [userId], references: [id])
   category Category[]
 }
 
@@ -81,10 +83,21 @@ model Lobby {
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   lobby     Lobby[]
   profile   Profile[]
+}
+
+model Friends {
+  id        Int     @id @default(autoincrement())
+  user_id   String
+  friend_id String
+  user      User    @relation(name: "users", fields: [user_id], references: [id])
+  friend    User    @relation(name: "friend_users", fields: [friend_id], references: [id])
+  status    Boolean @default(false)
+
+  @@unique([user_id, friend_id])
 }
