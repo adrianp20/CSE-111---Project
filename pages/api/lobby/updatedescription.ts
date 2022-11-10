@@ -12,17 +12,15 @@ export default async function handler(
   // const session = await unstable_getServerSession(req, res, authOptions);
   // if (session) {
   const data = req.body;
-  const lobby = await prisma.lobby.create({
+  const lobby = await prisma.lobby.update({
+    where: {
+      id: data.lobbyId,
+    },
     data: {
-      name: data.name,
       description: data?.description,
-      category: {
-        connect: {
-          id: data.categoryId,
-        },
-      },
     },
   });
+
   res.status(200).json({ lobby });
   // } else {
   //   res.status(401).json({
