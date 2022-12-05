@@ -1,43 +1,47 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import Image from 'next/image';
+import { signOut } from 'next-auth/react';
 
 const Navbar = (props: any) => (
   <div className="navbar bg-base-100">
     <div className="flex-1">
-      <span className="btn-ghost btn text-xl normal-case">daisyUI</span>
+      <a className="btn-ghost btn text-xl normal-case">Dashboard</a>
     </div>
     <div className="flex-none gap-2">
-      <div className="form-control">
-        <input
-          type="text"
-          placeholder="Search"
-          className="input-bordered input"
-        />
-      </div>
+      {props.assigned ? (
+        <a className="btn-ghost btn text-xl normal-case">Search For Lobby</a>
+      ) : (
+        <a className="btn-disabled btn">Found Lobby</a>
+      )}
+
       <div className="dropdown-end dropdown">
-        <span className="btn-ghost btn-circle avatar btn">
+        <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
           <div className="w-10 rounded-full">
-            <Image
-              // eslint-disable-next-line react/destructuring-assignment
-              src={props.image}
-              alt="Picture of the author"
-              width={100}
-              height={100}
-              className="rounded-full"
-            />
+            <Image src={props.image} alt="User Image" width={40} height={40} />
           </div>
-        </span>
-        <ul className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow">
+        </label>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+        >
           <li>
-            <span className="justify-between">
+            <a className="justify-between">
               Profile
-              <span className="badge">New</span>
-            </span>
+              <span className="badge">WIP</span>
+            </a>
           </li>
           <li>
-            <span>Settings</span>
-          </li>
-          <li>
-            <span>Logout</span>
+            <button
+              type="button"
+              className="justify-between"
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </button>
           </li>
         </ul>
       </div>
