@@ -12,7 +12,7 @@ const Navbar = (props: any) => (
       <a className="btn-ghost btn text-xl normal-case">Dashboard</a>
     </div>
     <div className="flex-none gap-2">
-      {props.assigned ? (
+      {props.assigned === null ? (
         <a className="btn-ghost btn text-xl normal-case">Search For Lobby</a>
       ) : (
         <a className="btn-disabled btn">Found Lobby</a>

@@ -5,7 +5,7 @@ import Navbar from '../components/app/Navbar';
 
 const Home: NextPage = ({ user }: any) => (
   // Form to update user profile
-  <Navbar image={user?.image} />
+  <Navbar image={user?.image} assigned={user?.lobbyId} />
 );
 
 export default Home;
