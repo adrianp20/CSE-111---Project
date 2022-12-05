@@ -14,7 +14,7 @@ const Login: NextPage = () => {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      router.push('/profile');
+      router.push('/dashboard');
     }
   }, [status, router]);
   return (
