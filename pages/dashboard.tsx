@@ -27,8 +27,18 @@ export const getServerSideProps = async (context: any) => {
     where: {
       email: session?.user?.email?.toLowerCase(),
     },
+    select: {
+      image: true,
+      lobby: {
+        select: {
+          id: true,
+          name: true,
+          description: true,
+        },
+      },
+    },
   });
-
+  console.log(user);
   return {
     props: {
       user,
