@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import Image from "next/image";
+import Image from 'next/image';
 
 const Card = (props: any) => (
   // create list of profiles containing name and image
@@ -24,7 +24,7 @@ const Card = (props: any) => (
             <div className="flex items-center space-x-3">
               <div className="avatar">
                 <div className="mask mask-squircle w-12 h-12">
-                  <image
+                  <Image
                     src="/tailwind-css-component-profile-2@56w.png"
                     alt="Avatar Tailwind CSS Component"
                   />
@@ -52,7 +52,7 @@ const Card = (props: any) => (
             <div className="flex items-center space-x-3">
               <div className="avatar">
                 <div className="mask mask-squircle w-12 h-12">
-                  <img
+                  <Image
                     src="/tailwind-css-component-profile-3@56w.png"
                     alt="Avatar Tailwind CSS Component"
                   />
@@ -76,7 +76,7 @@ const Card = (props: any) => (
             <div className="flex items-center space-x-3">
               <div className="avatar">
                 <div className="mask mask-squircle w-12 h-12">
-                  <img
+                  <Image
                     src="/tailwind-css-component-profile-4@56w.png"
                     alt="Avatar Tailwind CSS Component"
                   />
@@ -104,7 +104,7 @@ const Card = (props: any) => (
             <div className="flex items-center space-x-3">
               <div className="avatar">
                 <div className="mask mask-squircle w-12 h-12">
-                  <image
+                  <Image
                     src="/tailwind-css-component-profile-5@56w.png"
                     alt="Avatar Tailwind CSS Component"
                   />
