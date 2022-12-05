@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 import { signIn, useSession } from 'next-auth/react';
 import type { NextPage } from 'next';
 
@@ -21,13 +22,15 @@ const Login: NextPage = () => {
     <div className="grid h-screen place-items-center">
       <div className="w-96 bg-base-100 shadow-xl">
         <figure className="flex justify-center">
-          <Image
-            src="/logo.svg"
-            alt="logo"
-            width={150}
-            height={150}
-            className="object-contain"
-          />
+          <Link href="/">
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              width={150}
+              height={150}
+              className="btn-ghost rounded-lg object-contain"
+            />
+          </Link>
         </figure>
         <div className="card-body items-center">
           <button

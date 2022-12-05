@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import Navbar from '../components/Index/Navbar';
+import Hero from '../components/Index/Hero';
 
 const Home: NextPage = () => (
   <div>
-    <Navbar />
+    <Hero />
   </div>
 );
 

@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-
 import Image from 'next/image';
+import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 
 const Navbar = (props: any) => (
@@ -13,7 +13,9 @@ const Navbar = (props: any) => (
     </div>
     <div className="flex-none gap-2">
       {props.assigned === null ? (
-        <a className="btn-ghost btn text-xl normal-case">Search For Lobby</a>
+        <a className="btn-ghost btn text-xl normal-case">
+          <Link href="/lobbysearch">Search For Lobby</Link>
+        </a>
       ) : (
         <a className="btn-disabled btn">Found Lobby</a>
       )}
