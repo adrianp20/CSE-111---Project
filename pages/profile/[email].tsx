@@ -44,7 +44,9 @@ const Profile: NextPage = ({ profile, session, category }: any) => {
           <h2 className="text-center text-xl font-bold">
             {/* Map over the categories */}
             {profile?.profile?.category.map((cats: any) => (
-              <span key={cats.id}>{cats.name}</span>
+              <span className="badge-primary badge" key={cats.name}>
+                {cats.name}
+              </span>
             ))}
           </h2>
           <p className="text-center">{bio}</p>
