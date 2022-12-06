@@ -21,11 +21,19 @@ const Card = (props: any) => (
             <td className="whitespace-nowrap px-6 py-4">
               <div className="flex items-center">
                 <div className="h-10 w-10 shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={profile.picture}
-                    alt=""
-                  />
+                  <label
+                    tabIndex={0}
+                    className="btn-ghost btn-circle avatar btn"
+                  >
+                    <div className="w-10 rounded-full">
+                      <Image
+                        src={profile.Image}
+                        alt="User Image"
+                        width={40}
+                        height={40}
+                      />
+                    </div>
+                  </label>
                 </div>
               </div>
             </td>
