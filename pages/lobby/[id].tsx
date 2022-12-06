@@ -4,6 +4,7 @@ import { getSession } from 'next-auth/react';
 import Link from 'next/link';
 import { prisma } from '../../lib/prisma';
 import Hero from '../../components/lobby/Hero';
+import Card from '../../components/app/Card';
 
 const Lobby: NextPage = ({ lobbydata }: any) => (
   <>
@@ -15,7 +16,10 @@ const Lobby: NextPage = ({ lobbydata }: any) => (
       name={lobbydata?.name}
       description={lobbydata?.description}
       category={lobbydata.category}
+      id={lobbydata?.id}
     />
+
+    <Card profiles={lobbydata?.users} title="Users" />
   </>
 );
 
@@ -43,7 +47,6 @@ export const getServerSideProps = async (context: any) => {
       email: true,
     },
   });
-
   const lobbydata = await prisma.lobby.findUnique({
     where: {
       id: context.params.id,
@@ -62,11 +65,11 @@ export const getServerSideProps = async (context: any) => {
           id: true,
           name: true,
           email: true,
+          image: true,
         },
       },
     },
   });
-  console.log(lobbydata);
   return {
     props: {
       lobbydata,

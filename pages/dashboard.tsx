@@ -6,6 +6,7 @@ import Navbar from '../components/app/Navbar';
 import Lobbyboard from '../components/app/Lobbyboard';
 import Introducelobby from '../components/app/IntroduceLobby';
 import Card from '../components/app/Card';
+import Friendcard from '../components/app/Friendcard';
 
 const Home: NextPage = ({ user }: any) => {
   function leaveLobby() {
@@ -46,10 +47,10 @@ const Home: NextPage = ({ user }: any) => {
         )}
       </div>
 
-      {/* Grid divided by 3 */}
       <div className="grid grid-cols-3 gap-4">
         <Card profiles={user?.followers} title="Followers" />
         <Card profiles={user?.following} title="Following" />
+        <Friendcard friends={user?.userFriends} title="Friends" />
       </div>
     </>
   );
@@ -89,6 +90,7 @@ export const getServerSideProps = async (context: any) => {
           name: true,
           image: true,
           id: true,
+          email: true,
         },
       },
       followers: {
@@ -96,6 +98,21 @@ export const getServerSideProps = async (context: any) => {
           name: true,
           image: true,
           id: true,
+          email: true,
+        },
+      },
+      userFriends: {
+        select: {
+          id: true,
+          status: true,
+          friend: {
+            select: {
+              name: true,
+              image: true,
+              email: true,
+              id: true,
+            },
+          },
         },
       },
       profile: {
@@ -114,7 +131,6 @@ export const getServerSideProps = async (context: any) => {
     },
   });
 
-  // Count number of followers
   return {
     props: {
       user,

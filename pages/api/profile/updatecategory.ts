@@ -18,7 +18,10 @@ export default async function handler(
       },
       data: {
         category: {
-          connect: data.categoryIds.map((id: any) => ({ id })),
+          connect: {
+            // eslint-disable-next-line radix
+            id: parseInt(data.categoryId),
+          },
         },
       },
     });

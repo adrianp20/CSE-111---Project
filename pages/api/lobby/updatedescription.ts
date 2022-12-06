@@ -14,7 +14,7 @@ export default async function handler(
   const data = req.body;
   const lobby = await prisma.lobby.update({
     where: {
-      id: data.lobbyId,
+      id: data.id,
     },
     data: {
       description: data?.description,

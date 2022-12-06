@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Card = (props: any) => (
   // create list of profiles containing name and image
@@ -20,21 +21,26 @@ const Card = (props: any) => (
         {props.profiles.map((profile: any) => (
           <tr key={profile.id}>
             <td className="px-4 py-3">
-              <div className="flex items-center text-sm">
-                <div className="relative mr-3 hidden h-8 w-8 rounded-full md:block">
-                  <Image
-                    src={profile.image}
-                    alt="profile"
-                    className="rounded-full"
-                    width={40}
-                    height={40}
-                  />
-                  <div className="absolute inset-0 rounded-full shadow-inner" />
+              <Link
+                href={`/profile/${profile.email}`}
+                className="btn-ghost btn"
+              >
+                <div className="flex items-center text-sm">
+                  <div className="relative mr-3 hidden h-8 w-8 rounded-full md:block">
+                    <Image
+                      src={profile.image}
+                      alt="profile"
+                      className="rounded-full"
+                      width={40}
+                      height={40}
+                    />
+                    <div className="absolute inset-0 rounded-full shadow-inner" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">{profile.name}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold">{profile.name}</p>
-                </div>
-              </div>
+              </Link>
             </td>
           </tr>
         ))}
