@@ -1,7 +1,9 @@
+/* eslint-disable no-underscore-dangle */
 import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { prisma } from '../lib/prisma';
 import Navbar from '../components/app/Navbar';
+import Card from '../components/lobbysearch/Card';
 
 const Home: NextPage = ({ user, lobbylist }: any) => (
   // Form to update user profile
@@ -10,12 +12,12 @@ const Home: NextPage = ({ user, lobbylist }: any) => (
     <div className="container mx-auto">
       <div className="grid grid-cols-1 gap-4">
         {lobbylist.map((lobby: any) => (
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title">{lobby.name}</h2>
-              <p className="">{lobby.description}</p>
-            </div>
-          </div>
+          <Card
+            title={lobby.name}
+            description={lobby.description}
+            count={lobby._count.users}
+            id={lobby.id}
+          />
         ))}
       </div>
     </div>
@@ -56,10 +58,15 @@ export const getServerSideProps = async (context: any) => {
           name: true,
         },
       },
+      _count: {
+        select: {
+          users: true,
+        },
+      },
     },
   });
 
-  console.log(lobbylist[0].category[0].name);
+  console.log(lobbylist);
   return {
     props: {
       user,
