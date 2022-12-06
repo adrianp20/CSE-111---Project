@@ -1,8 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
+import { useRouter } from 'next/router';
 
 const Card = (props: any) => {
-  function setLobby() {
-    fetch('/api/user/setlobby', {
+  const router = useRouter();
+  async function setLobby() {
+    await fetch('/api/user/setlobby', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -11,6 +13,8 @@ const Card = (props: any) => {
         lobby: props.id,
       }),
     }).then((response) => response.json());
+
+    router.push('/dashboard');
   }
 
   return (

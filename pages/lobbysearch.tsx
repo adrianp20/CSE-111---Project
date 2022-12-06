@@ -6,7 +6,7 @@ import Navbar from '../components/app/Navbar';
 import Card from '../components/lobbysearch/Card';
 
 const Home: NextPage = ({ user, lobbylist }: any) => (
-  // Form to update user profile
+  // router
   <>
     <Navbar image={user?.image} assigned={null} page="Lobby Search" />
     <div className="container mx-auto">
@@ -23,7 +23,6 @@ const Home: NextPage = ({ user, lobbylist }: any) => (
     </div>
   </>
 );
-
 export default Home;
 
 // Get User profile data from prisma
