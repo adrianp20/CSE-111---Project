@@ -45,8 +45,10 @@ const Home: NextPage = ({ user }: any) => {
         <Card profiles={user?.following} />
         <div className="col-span-1" />
         {/* Center */}
+        <Card profiles={user?.following} />
         <div className="col-span-1" />
         {/* Right side */}
+        <Card profiles={user?.following} />
         <div className="col-span-1" />
       </div>
     </>
