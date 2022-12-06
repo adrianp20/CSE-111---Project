@@ -5,6 +5,7 @@ import { prisma } from '../lib/prisma';
 import Navbar from '../components/app/Navbar';
 import Lobbyboard from '../components/app/Lobbyboard';
 import Introducelobby from '../components/app/IntroduceLobby';
+import Card from '../components/app/Card';
 
 const Home: NextPage = ({ user }: any) => {
   function leaveLobby() {
@@ -41,7 +42,11 @@ const Home: NextPage = ({ user }: any) => {
 
       {/* Grid divided by 3 */}
       <div className="grid grid-cols-3 gap-4">
-        {/* Left side */}
+        <Card profiles={user?.following} />
+        <div className="col-span-1" />
+        {/* Center */}
+        <div className="col-span-1" />
+        {/* Right side */}
         <div className="col-span-1" />
       </div>
     </>
@@ -76,8 +81,21 @@ export const getServerSideProps = async (context: any) => {
           description: true,
         },
       },
+      following: {
+        select: {
+          name: true,
+          image: true,
+          id: true,
+        },
+      },
+      _count: {
+        select: { followers: true, following: true },
+      },
     },
   });
+
+  console.log(user);
+  // Count number of followers
   return {
     props: {
       user,

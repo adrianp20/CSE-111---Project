@@ -27,7 +27,7 @@ const Card = (props: any) => (
                   >
                     <div className="w-10 rounded-full">
                       <Image
-                        src={profile.Image}
+                        src={profile?.image}
                         alt="User Image"
                         width={40}
                         height={40}
@@ -49,6 +49,8 @@ const Card = (props: any) => (
                   <Image
                     src="/tailwind-css-component-profile-2@56w.png"
                     alt="Avatar Tailwind CSS Component"
+                    width={56}
+                    height={56}
                   />
                 </div>
               </div>
@@ -69,6 +71,8 @@ const Card = (props: any) => (
                   <Image
                     src="/tailwind-css-component-profile-3@56w.png"
                     alt="Avatar Tailwind CSS Component"
+                    width={56}
+                    height={56}
                   />
                 </div>
               </div>
@@ -83,6 +87,8 @@ const Card = (props: any) => (
                   <Image
                     src="/tailwind-css-component-profile-4@56w.png"
                     alt="Avatar Tailwind CSS Component"
+                    width={56}
+                    height={56}
                   />
                 </div>
               </div>
@@ -102,6 +108,8 @@ const Card = (props: any) => (
                   <Image
                     src="/tailwind-css-component-profile-5@56w.png"
                     alt="Avatar Tailwind CSS Component"
+                    width={56}
+                    height={56}
                   />
                 </div>
               </div>
@@ -115,12 +123,6 @@ const Card = (props: any) => (
         </tr>
       </tbody>
       {/* <!-- foot --> */}
-      <tfoot>
-        <tr>
-          <th>User</th>
-          <th>Picture</th>
-        </tr>
-      </tfoot>
     </table>
   </div>
 );
