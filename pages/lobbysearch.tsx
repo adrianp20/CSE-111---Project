@@ -3,11 +3,22 @@ import { getSession } from 'next-auth/react';
 import { prisma } from '../lib/prisma';
 import Navbar from '../components/app/Navbar';
 
-const Home: NextPage = ({ user }: any) => (
+const Home: NextPage = ({ user, lobbylist }: any) => (
   // Form to update user profile
   <>
-    <Navbar image={user?.image} assigned={user?.lobby} />
-    <h1>Search for lobby here</h1>
+    <Navbar image={user?.image} assigned={null} page="Lobby Search" />
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 gap-4">
+        {lobbylist.map((lobby: any) => (
+          <div className="card">
+            <div className="card-body">
+              <h2 className="card-title">{lobby.name}</h2>
+              <p className="">{lobby.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   </>
 );
 
@@ -32,19 +43,27 @@ export const getServerSideProps = async (context: any) => {
     },
     select: {
       image: true,
-      lobby: {
+    },
+  });
+
+  const lobbylist = await prisma.lobby.findMany({
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      category: {
         select: {
-          id: true,
           name: true,
-          description: true,
         },
       },
     },
   });
-  console.log(user);
+
+  console.log(lobbylist[0].category[0].name);
   return {
     props: {
       user,
+      lobbylist,
     },
   };
 };

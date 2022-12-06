@@ -26,7 +26,7 @@ const Home: NextPage = ({ user }: any) => {
 
   return (
     <>
-      <Navbar image={user?.image} assigned={user?.lobby} />
+      <Navbar image={user?.image} assigned={user?.lobby} page="Dashboard" />
       {/* center of page */}
       <div className="flex flex-row justify-center py-2">
         {user?.lobby === null ? (
