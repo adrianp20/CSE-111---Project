@@ -9,9 +9,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const session = await unstable_getServerSession(req, res, authOptions);
+  const session: any = await unstable_getServerSession(req, res, authOptions);
   if (session) {
-    console.log(session);
     const data = req.body;
     const profile = await prisma.profile.update({
       where: {
