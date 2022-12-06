@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { prisma } from '../lib/prisma';
 import Navbar from '../components/app/Navbar';
-import { Card } from '../components/app/Card';
+// import Card from '../components/app/Card';
 
 const Home: NextPage = ({ user }: any) => (
   // Form to update user profile
