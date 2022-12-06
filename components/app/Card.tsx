@@ -15,55 +15,29 @@ const Card = (props: any) => (
         <tr>
           <th>{props.title}</th>
         </tr>
+      </thead>
+      <tbody>
         {props.profiles.map((profile: any) => (
           <tr key={profile.id}>
-            <td className="whitespace-nowrap px-6 py-4">
-              <div className="flex items-center">
-                <div className="h-10 w-10 shrink-0">
-                  <label
-                    tabIndex={0}
-                    className="btn-ghost btn-circle avatar btn"
-                  >
-                    <div className="w-10 rounded-full">
-                      <Image
-                        src={profile?.image}
-                        alt="User Image"
-                        width={40}
-                        height={40}
-                      />
-                    </div>
-                  </label>
+            <td className="px-4 py-3">
+              <div className="flex items-center text-sm">
+                <div className="relative mr-3 hidden h-8 w-8 rounded-full md:block">
+                  <Image
+                    src={profile.image}
+                    alt="profile"
+                    className="rounded-full"
+                    width={40}
+                    height={40}
+                  />
+                  <div className="absolute inset-0 rounded-full shadow-inner" />
+                </div>
+                <div>
+                  <p className="font-semibold">{profile.name}</p>
                 </div>
               </div>
             </td>
           </tr>
         ))}
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div className="flex items-center space-x-3">
-              <div className="avatar">
-                <div className="mask mask-circle h-12 w-12">
-                  <Image
-                    // src={props.image}
-                    // src="https://avatars.githubusercontent.com/u/59373049?v=4"
-                    src={props.image}
-                    // src="https://avatars.githubusercontent.com/u/"
-                    alt="User Image"
-                    width={40}
-                    height={40}
-                  />
-                </div>
-              </div>
-              <div>
-                {/* import name of user from their google or github profile */}
-                {/* <div className="font-bold">User1</div> */}
-                <div className="font-bold">{props.name}</div>
-              </div>
-            </div>
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
