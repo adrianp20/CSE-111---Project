@@ -13,7 +13,7 @@ const Card = (props: any) => (
     <table className="table w-full">
       <thead>
         <tr>
-          <th>Following</th>
+          <th>{props.title}</th>
         </tr>
         {props.profiles.map((profile: any) => (
           <tr key={profile.id}>
@@ -47,7 +47,8 @@ const Card = (props: any) => (
                 <div className="mask mask-circle h-12 w-12">
                   <Image
                     // src={props.image}
-                    src="https://avatars.githubusercontent.com/u/59373049?v=4"
+                    // src="https://avatars.githubusercontent.com/u/59373049?v=4"
+                    src={props.image}
                     // src="https://avatars.githubusercontent.com/u/"
                     alt="User Image"
                     width={40}

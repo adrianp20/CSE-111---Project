@@ -42,13 +42,13 @@ const Home: NextPage = ({ user }: any) => {
 
       {/* Grid divided by 3 */}
       <div className="grid grid-cols-3 gap-4">
-        <Card profiles={user?.following} />
+        <Card profiles={user?.followers} title="Friends List" />
         <div className="col-span-1" />
         {/* Center */}
-        <Card profiles={user?.following} />
+        <Card profiles={user?.following} title="Recent Players" />
         <div className="col-span-1" />
         {/* Right side */}
-        <Card profiles={user?.following} />
+        <Card profiles={user?.following} title="Following" />
         <div className="col-span-1" />
       </div>
     </>
@@ -84,6 +84,13 @@ export const getServerSideProps = async (context: any) => {
         },
       },
       following: {
+        select: {
+          name: true,
+          image: true,
+          id: true,
+        },
+      },
+      followers: {
         select: {
           name: true,
           image: true,
