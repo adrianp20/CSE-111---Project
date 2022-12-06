@@ -72,7 +72,6 @@ export const getServerSideProps = async (context: any) => {
       },
     },
   });
-  console.log(user);
   return {
     props: {
       user,
