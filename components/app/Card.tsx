@@ -9,7 +9,7 @@ const Card = (props: any) => (
   // create list of profiles containing name and image
 
   // Table component name and image are passed as props
-  <div className="overflow-x-auto w-full">
+  <div className="w-full overflow-x-auto">
     <table className="table w-full">
       <thead>
         <tr>
@@ -18,9 +18,9 @@ const Card = (props: any) => (
         </tr>
         {props.profiles.map((profile: any) => (
           <tr key={profile.id}>
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="whitespace-nowrap px-6 py-4">
               <div className="flex items-center">
-                <div className="flex-shrink-0 h-10 w-10">
+                <div className="h-10 w-10 shrink-0">
                   <img
                     className="h-10 w-10 rounded-full"
                     src={profile.picture}
@@ -37,7 +37,7 @@ const Card = (props: any) => (
           <td>
             <div className="flex items-center space-x-3">
               <div className="avatar">
-                <div className="mask mask-circle w-12 h-12">
+                <div className="mask mask-circle h-12 w-12">
                   <Image
                     src="/tailwind-css-component-profile-2@56w.png"
                     alt="Avatar Tailwind CSS Component"
@@ -57,7 +57,7 @@ const Card = (props: any) => (
           <td>
             <div className="flex items-center space-x-3">
               <div className="avatar">
-                <div className="mask mask-circle w-12 h-12">
+                <div className="mask mask-circle h-12 w-12">
                   <Image
                     src="/tailwind-css-component-profile-3@56w.png"
                     alt="Avatar Tailwind CSS Component"
@@ -71,7 +71,7 @@ const Card = (props: any) => (
           <td>
             <div className="flex items-center space-x-3">
               <div className="avatar">
-                <div className="mask mask-circle w-12 h-12">
+                <div className="mask mask-circle h-12 w-12">
                   <Image
                     src="/tailwind-css-component-profile-4@56w.png"
                     alt="Avatar Tailwind CSS Component"
@@ -90,7 +90,7 @@ const Card = (props: any) => (
           <td>
             <div className="flex items-center space-x-3">
               <div className="avatar">
-                <div className="mask mask-circle w-12 h-12">
+                <div className="mask mask-circle h-12 w-12">
                   <Image
                     src="/tailwind-css-component-profile-5@56w.png"
                     alt="Avatar Tailwind CSS Component"

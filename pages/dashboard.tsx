@@ -38,6 +38,12 @@ const Home: NextPage = ({ user }: any) => {
           />
         )}
       </div>
+
+      {/* Grid divided by 3 */}
+      <div className="grid grid-cols-3 gap-4">
+        {/* Left side */}
+        <div className="col-span-1" />
+      </div>
     </>
   );
 };
