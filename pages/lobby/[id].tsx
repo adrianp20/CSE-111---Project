@@ -1,15 +1,22 @@
 /* eslint-disable react/jsx-no-bind */
 import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
+import Link from 'next/link';
 import { prisma } from '../../lib/prisma';
 import Hero from '../../components/lobby/Hero';
-import Navbar from '../../components/lobby/Navbar';
 
-const Lobby: NextPage = ({ lobbydata, user }: any) => (
-  <div>
-    <Navbar image={user?.image} page="Lobby" />
-    <Hero name={lobbydata?.name} description={lobbydata?.description} />
-  </div>
+const Lobby: NextPage = ({ lobbydata }: any) => (
+  <>
+    {/* Top Left button link to dashboard */}
+    <Link href="/dashboard">
+      <button className="btn-primary btn m-3">Dashboard</button>
+    </Link>
+    <Hero
+      name={lobbydata?.name}
+      description={lobbydata?.description}
+      category={lobbydata.category}
+    />
+  </>
 );
 
 export default Lobby;
@@ -33,6 +40,7 @@ export const getServerSideProps = async (context: any) => {
     },
     select: {
       image: true,
+      email: true,
     },
   });
 
@@ -58,7 +66,7 @@ export const getServerSideProps = async (context: any) => {
       },
     },
   });
-
+  console.log(lobbydata);
   return {
     props: {
       lobbydata,

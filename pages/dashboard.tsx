@@ -26,7 +26,12 @@ const Home: NextPage = ({ user }: any) => {
 
   return (
     <>
-      <Navbar image={user?.image} assigned={user?.lobby} page="Dashboard" />
+      <Navbar
+        image={user?.image}
+        assigned={user?.lobby}
+        page="Dashboard"
+        email={user?.email}
+      />
       {/* center of page */}
       <div className="flex flex-row justify-center py-2">
         {user?.lobby === null ? (
@@ -71,6 +76,7 @@ export const getServerSideProps = async (context: any) => {
     },
     select: {
       image: true,
+      email: true,
       lobby: {
         select: {
           id: true,

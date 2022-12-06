@@ -37,10 +37,7 @@ const Navbar = (props: any) => (
           </li>
           <li>
             <Link href={`/profile/${props.email}`}>
-              <a className="justify-between">
-                Profile
-                <span className="badge">WIP</span>
-              </a>
+              <span className="justify-between">Profile</span>
             </Link>
           </li>
           <li>
