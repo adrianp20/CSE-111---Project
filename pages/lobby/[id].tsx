@@ -2,8 +2,15 @@
 import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { prisma } from '../../lib/prisma';
+import Hero from '../../components/lobby/Hero';
+import Navbar from '../../components/lobby/Navbar';
 
-const Lobby: NextPage = ({ lobbydata }: any) => <h1>{lobbydata.name}</h1>;
+const Lobby: NextPage = ({ lobbydata, user }: any) => (
+  <div>
+    <Navbar image={user?.image} page="Lobby" />
+    <Hero name={lobbydata?.name} description={lobbydata?.description} />
+  </div>
+);
 
 export default Lobby;
 
@@ -19,6 +26,15 @@ export const getServerSideProps = async (context: any) => {
       },
     };
   }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email: session?.user?.email?.toLowerCase(),
+    },
+    select: {
+      image: true,
+    },
+  });
 
   const lobbydata = await prisma.lobby.findUnique({
     where: {
@@ -46,6 +62,7 @@ export const getServerSideProps = async (context: any) => {
   return {
     props: {
       lobbydata,
+      user,
     },
   };
 };

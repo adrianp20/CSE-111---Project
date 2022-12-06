@@ -10,7 +10,7 @@ const Home: NextPage = ({ user, lobbylist }: any) => (
   <>
     <Navbar image={user?.image} assigned={null} page="Lobby Search" />
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         {lobbylist.map((lobby: any) => (
           <Card
             title={lobby.name}

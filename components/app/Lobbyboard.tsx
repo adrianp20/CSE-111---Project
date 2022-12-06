@@ -16,7 +16,7 @@ const Lobbyboard = (props: any) => (
         <h1 className="mb-5 text-5xl font-bold">{props.name}</h1>
         <p className="mb-5">{props.description}</p>
         <div className="space-x-3">
-          <Link href="/lobbysearch">
+          <Link href={`/lobby/${props.id}`}>
             <button className="btn-primary btn">Enter lobby</button>
           </Link>
           <button className="btn-primary btn" onClick={props.leave}>

@@ -12,14 +12,6 @@ const Navbar = (props: any) => (
       <a className="btn-ghost btn text-xl normal-case">{props.page}</a>
     </div>
     <div className="flex-none gap-2">
-      {props.assigned === null ? (
-        <a className="btn-ghost btn text-xl normal-case">
-          <Link href="/lobbysearch">Search For Lobby</Link>
-        </a>
-      ) : (
-        <a className="btn-disabled btn">Found Lobby</a>
-      )}
-
       <div className="dropdown-end dropdown">
         <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
           <div className="w-10 rounded-full">
@@ -36,12 +28,10 @@ const Navbar = (props: any) => (
             </a>
           </li>
           <li>
-            <Link href={`/profile/${props.email}`}>
-              <a className="justify-between">
-                Profile
-                <span className="badge">WIP</span>
-              </a>
-            </Link>
+            <a className="justify-between">
+              Profile
+              <span className="badge">WIP</span>
+            </a>
           </li>
           <li>
             <button
